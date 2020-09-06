@@ -1,11 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import HelloWorld from "./components/helloworld";
+import { Route, Link } from 'react-router-dom';
+
+
+let test = 1;
+function updateTest()
+{
+  test ++;
+}
 
 function App() {
+ 
+  updateTest();
   return (
+   
     <div className="App">
-      <header className="App-header">
+
+      <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/helloWorld">Hello World</Link></li>
+          <li><Link to="/cities">Cities</Link></li>
+        </ul>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -18,7 +36,10 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      {test}
+      <Route path="/helloWorld" component={HelloWorld}/>
+      {/* <HelloWorld myname="ilya" hisname="danny" settest = {updateTest}/> */}
     </div>
   );
 }
